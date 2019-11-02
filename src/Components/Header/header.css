@@ -1,0 +1,30 @@
+.header_component{
+    width:100%;
+    background: #ff69b4;
+    min-height: 50px;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user{
+    height: 90%;
+    width: 30%;
+    background: khaki;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo{
+    width: 10%;
+    height: 90%;
+    background: chartreuse;
+    margin-left: 3%;
+}
+
+.nav{
+    width: 40%;
+    height: 90%;
+    background: goldenrod;
+}
