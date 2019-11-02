@@ -1,0 +1,16 @@
+.sign_up_form{
+    margin: 0 auto;
+    padding: 2%;
+    min-height: 150px;
+}
+form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+input {
+    border:0;
+    outline: none;
+} 

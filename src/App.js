@@ -1,22 +1,28 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom"; 
 import './App.css';
+
+
 import { Header } from './Components/Header';
 import { Footer } from './Components/Footer';
+import  Registration   from './Containers/SignUp';
 
-function App() {
+
+
+
+const App = ( ) => {
   return (
     <div className="App">
-      <Header className="header"/>
+      <Header />
       <Switch >
-        {/* <Route path="/" component={}/> */}
+        <Route path="/" exact/>
         <Route path="/login" />
-        <Route path="/auth" />
+        <Route path="/auth" component={Registration}/>
         {/* <Route path="/" component={}/> */}
       </Switch>
-      <Footer className="Footer"/>
+      <Footer/>
     </div>
   );
 }
 
-export default App;
+export default App
