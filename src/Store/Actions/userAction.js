@@ -5,7 +5,7 @@ import axios from 'axios';
     
 
 
- const SignUpRequest = payload => ({
+const SignUpRequest = payload => ({
     type:types.USER_SIGN_UP_REQUEST,
     payload
 })
@@ -20,18 +20,70 @@ const SignUpFail = payload => ({
     payload
 })
 
+
+
+const LogInRequest = payload => ({
+    type:types.USER_LOG_IN_REQUEST,
+    payload
+})
+
+const LogInSuccess = payload =>({
+    type:types.USER_LOG_IN_SUCCESS ,
+    payload
+})
+
+const LogInFail = payload => ({
+    type:types.USER_LOG_IN_FAIL,
+    payload
+})
+
+
+
+
 const url ="https://film-api-go.herokuapp.com"
-export const SignUp = payload => {
-		console.log(`${url}/auth`)
-    	return dispatch => {
+
+
+export const SignUp = payload => async dispatch => {
+    	try {
     		dispatch(SignUpRequest());
-    
-    		axios({
+			
+    		const data = await axios({
     			method: "POST",
     			url: `${url}/auth`,
     			data: payload
-    		})
-    			.then(res => dispatch(SignUpSuccess(res), console.log("REsponse",res)))
-    			.catch(err => dispatch(SignUpFail(err)));
-    	};
-    };
+			});
+			dispatch(SignUpSuccess( data ));
+		} catch  ( error ) {
+
+			dispatch(SignUpFail( error ))
+		} 	
+	};
+	
+
+
+
+
+
+
+export const LogIn = payload => async dispatch => {
+	try {
+		dispatch(LogInRequest());
+	
+		const data = await axios({
+			method: "POST",
+			url: `${url}/login`,
+			data: payload
+		});
+		localStorage.setItem("JwtToken", data.data.token);
+		const login = JSON.parse(data.config.data.split(",")[0].split(":")[1])
+		dispatch(LogInSuccess( login ))
+	} catch  ( error ) {
+		dispatch(LogInFail( error ))
+	} 	
+};
+
+
+
+// headers: {
+// 	Authorization: `Bearer ${payload.token}`
+// }

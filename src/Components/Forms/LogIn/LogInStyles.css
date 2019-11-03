@@ -1,9 +1,10 @@
-.sign_up_form{
-    margin: 5% auto;
+.log_in__form{
+    margin: 8% auto;
     padding: 2%;
+    min-height: 80px;
 }
-form{
-    min-height: 150px;
+.formSignIn{
+    min-height: 80px;
     width: 100%;
     display: flex;
     flex-direction: column;

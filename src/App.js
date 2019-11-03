@@ -3,9 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import './App.css';
 
 
-import { Header } from './Components/Header';
+import  Header  from './Components/Header';
 import { Footer } from './Components/Footer';
 import  Registration   from './Containers/SignUp';
+import Authorization from './Containers/LogIn';
 
 
 
@@ -16,7 +17,7 @@ const App = ( ) => {
       <Header />
       <Switch >
         <Route path="/" exact/>
-        <Route path="/login" />
+        <Route path="/login" component={Authorization} />
         <Route path="/auth" component={Registration}/>
         {/* <Route path="/" component={}/> */}
       </Switch>

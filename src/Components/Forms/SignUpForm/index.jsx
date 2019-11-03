@@ -1,6 +1,5 @@
 import React  from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { moreThen3Symbols } from '../validations';
 import './SignUpStyles.css';
 
 
@@ -23,7 +22,7 @@ import './SignUpStyles.css';
                     placeholder="Password"
                     required= {true}/>
                 <Field 
-                    name="userName"
+                    name="username"
                     type="text" 
                     component="input"
                     placeholder="Name"
