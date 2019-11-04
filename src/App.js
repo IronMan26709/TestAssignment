@@ -7,6 +7,7 @@ import  Header  from './Components/Header';
 import { Footer } from './Components/Footer';
 import  Registration   from './Containers/SignUp';
 import Authorization from './Containers/LogIn';
+import  Dashboard  from './Containers/Dashboard';
 
 
 
@@ -19,7 +20,8 @@ const App = ( ) => {
         <Route path="/" exact/>
         <Route path="/login" component={Authorization} />
         <Route path="/auth" component={Registration}/>
-        {/* <Route path="/" component={}/> */}
+        <Route path="/dashboard" component={Dashboard}/>
+        {/* <Route path="/newMovie" component={}/> */}
       </Switch>
       <Footer/>
     </div>

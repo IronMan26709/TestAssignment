@@ -1,0 +1,18 @@
+.dashboard_wrap{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.content_wrap{
+    min-height: 380px;
+}
+.dashbord_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.dashbord_header{
+    margin: 10px;
+    height: 30px;
+}

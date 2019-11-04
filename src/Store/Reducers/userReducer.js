@@ -31,6 +31,10 @@ export default ( state = initialState,{type, payload} ) =>{
         case types.USER_LOG_IN_FAIL : {
             return { ...state, logInError : true  , isFetching : false  }
         };
+        case types.USER_LOG_OUT:
+            localStorage.removeItem("JwtToken");
+            localStorage.removeItem("login");
+            return { ...state, login : null } 
         default: {  
             return state;
         }

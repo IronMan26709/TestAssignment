@@ -38,9 +38,14 @@ const LogInFail = payload => ({
 })
 
 
+export const userLogOut = payload => ({
+    type:types.USER_LOG_OUT,
+    payload
+})
 
-
-const url ="https://film-api-go.herokuapp.com"
+ 
+ 
+export const url ="https://film-api-go.herokuapp.com"
 
 
 export const SignUp = payload => async dispatch => {
@@ -76,6 +81,7 @@ export const LogIn = payload => async dispatch => {
 		});
 		localStorage.setItem("JwtToken", data.data.token);
 		const login = JSON.parse(data.config.data.split(",")[0].split(":")[1])
+		localStorage.setItem( "login", login)
 		dispatch(LogInSuccess( login ))
 	} catch  ( error ) {
 		dispatch(LogInFail( error ))
