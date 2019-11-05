@@ -87,9 +87,3 @@ export const LogIn = payload => async dispatch => {
 		dispatch(LogInFail( error ))
 	} 	
 };
-
-
-
-// headers: {
-// 	Authorization: `Bearer ${payload.token}`
-// }

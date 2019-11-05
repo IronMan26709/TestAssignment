@@ -18,7 +18,7 @@ const Header = props =>{
       !movies && GetAllMovies()   
     } 
     const addNewMovie = () =>{
-        // !movies && GetAllMovies()   
+        
       } 
     return(
         <div className="header_component">

@@ -34,6 +34,18 @@ const addNewMovieFail = payload => ({
     payload
 })
 
+
+export const fullInfo = payload => ({
+    type:types.FULL_MOVIE_INFO,
+    payload
+})
+
+export const ClosefullInfo = payload => ({
+    type:types.CLOSE_FULL_MOVIE_INFO,
+    payload
+})
+
+
 export const GetAllMovies = () => async dispatch =>{
     try{
         dispatch(getMoviesRequest());

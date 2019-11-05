@@ -8,7 +8,7 @@ import { Footer } from './Components/Footer';
 import  Registration   from './Containers/SignUp';
 import Authorization from './Containers/LogIn';
 import  Dashboard  from './Containers/Dashboard';
-
+import DetailInfo from './Containers/DetailInfo';
 
 
 
@@ -22,6 +22,8 @@ const App = ( ) => {
         <Route path="/auth" component={Registration}/>
         <Route path="/dashboard" component={Dashboard}/>
         {/* <Route path="/newMovie" component={}/> */}
+        <Route path="/fullinfo" component={DetailInfo}/>
+        
       </Switch>
       <Footer/>
     </div>

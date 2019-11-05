@@ -1,16 +1,16 @@
 import React from 'react';
 import { DashItem }  from '../../Components/DashItem';
 import { connect } from 'react-redux';
-import {  GetAllMovies, AddNewMovie } from '../../Store/Actions/moviesActions';
+import { fullInfo} from '../../Store/Actions/moviesActions';
+import { Redirect } from 'react-router-dom';
 import './Dashboard.css'
  
 const Dashboard = props =>{
-    const { movies } = props 
+    const { movies, selected } = props 
     const getInfo = event =>{
-        // props.GetFullInfoAboutMovie(event)   
-        console.log( event)
+        props.fullInfo(event)   
     }  
-    
+    if ( selected !== null ) return <Redirect to="/fullinfo" />
     return(
         <>
             <div className="dashboard_wrap">
@@ -27,13 +27,11 @@ const Dashboard = props =>{
     )
 }
 const mapDispatchToProps = dispatch => ({
-    GetAllMovies : () => dispatch( GetAllMovies ()),
-    AddNewMovie : e => dispatch( AddNewMovie ( e ))
+    fullInfo : e => dispatch( fullInfo(e))
+})
+const mapStateToProps = state => ({
+    selected: state.moviesReducer.selected,
+    movies : state.moviesReducer.movies
 })
 
-const mapStateToProps = state =>({
-    movies : state.moviesReducer.movies
-    
-    
-})
 export default connect (mapStateToProps, mapDispatchToProps)(Dashboard)
