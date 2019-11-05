@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 
 
 const Registration = props =>{
+    
     const regSubmit = values =>{
     const { age, username, password, login, telephone } = values
     const formValues = { 
