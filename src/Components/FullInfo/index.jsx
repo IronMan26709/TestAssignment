@@ -7,9 +7,7 @@ import './FullInfo.css'
 
 const FullInfo = props => {
     const  { movies, selected} =  props
-    console.log( movies, selected, props)
     const theMovie =  movies.filter( item => item.id === selected )[0]
-    console.log(theMovie)
     return(
         <div className="detailItem">
              <div className="movieName">

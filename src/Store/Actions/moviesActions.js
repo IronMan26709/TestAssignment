@@ -54,7 +54,7 @@ export const GetAllMovies = () => async dispatch =>{
             headers: {
 	            Authorization: `Bearer ${localStorage.JwtToken}`
             },
-            url : `${url}/api/v1/film?limit=5&offset=10`
+            url : `${url}/api/v1/film?`
         });
         dispatch(getMoviesSuccess(data.data.result))
     }
@@ -65,16 +65,19 @@ export const GetAllMovies = () => async dispatch =>{
 
 
 export const AddNewMovie = payload => async dispatch => {
-    try{
+    try{ 
         dispatch(addNewMovieRequest());
         const data = await axios ({
-            method : "GET",
+            method : "POST",
             headers: {
 	            Authorization: `Bearer ${localStorage.JwtToken}`
             },
-            url : `${url}/api/v1/film`
-    });
+            url : `${url}/api/v1/film`,
+            data: payload
+
+    }); 
         dispatch(addNewMovieSuccess(data))
+        dispatch(GetAllMovies()) 
 }   
     catch( error ) {
         dispatch(addNewMovieFail(error))

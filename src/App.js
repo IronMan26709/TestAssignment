@@ -9,6 +9,8 @@ import  Registration   from './Containers/SignUp';
 import Authorization from './Containers/LogIn';
 import  Dashboard  from './Containers/Dashboard';
 import DetailInfo from './Containers/DetailInfo';
+import  NewMovie  from './Containers/NewMovie';
+import PrivateRoute from './PrivatRouter';
 
 
 
@@ -20,10 +22,9 @@ const App = ( ) => {
         <Route path="/" exact/>
         <Route path="/login" component={Authorization} />
         <Route path="/auth" component={Registration}/>
-        <Route path="/dashboard" component={Dashboard}/>
-        {/* <Route path="/newMovie" component={}/> */}
-        <Route path="/fullinfo" component={DetailInfo}/>
-        
+        <PrivateRoute path="/dashboard" component={Dashboard}/>
+        <PrivateRoute path="/fullinfo" component={DetailInfo}/>
+        <PrivateRoute path="/newMovie" component={NewMovie} />
       </Switch>
       <Footer/>
     </div>

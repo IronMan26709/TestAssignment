@@ -15,23 +15,20 @@ const Header = props =>{
         userLogOut()
     }
     const getMovies = () =>{
-      !movies && GetAllMovies()   
+       GetAllMovies()   
     } 
-    const addNewMovie = () =>{
-        
-      } 
     return(
         <div className="header_component">
-            <div className="logo" > Logo</div>
+            <div className="logo" > </div>
             <div className="nav" >
-                <ul>
+              { login && <ul>
                     <li><Link onClick={getMovies} to="/dashboard" >List of movies</Link></li>
-                    <li><Link onClick={addNewMovie} to="/newMovie" > Add new movie</Link></li>
-                </ul>
+                    <li><Link  to="/newMovie" > Add new movie</Link></li>
+                </ul> }
             </div>
             <div className="user" >
                 { login ? <span  onClick={LogOut}>Log Out</span> : <Link to="/login"> <span >Log In</span></Link> }
-                { login ? <span>{localStorage.login}</span> : <Link to="/auth"><span>Sign Up</span></Link>}
+                { login ? <span>{login}</span> : <Link to="/auth"><span>Sign Up</span></Link>}
             </div>
         </div>
     )

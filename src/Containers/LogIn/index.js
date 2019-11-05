@@ -9,8 +9,8 @@ const Authorization = props =>{
     const LogInSubmit = values =>{ 
      props.LogIn( values) 
     }
-    const {logInError,logInSucc} = props 
-    if(!logInError && logInSucc) return <Redirect to="/" />
+    const {logInError,logInSucc, login} = props 
+    if( login && !logInError && logInSucc) return <Redirect to="/" />
 
     return(
         <div className="log_in"> 
@@ -26,7 +26,8 @@ const mapDispatchToProps = dispatch =>({
 
 const mapStateToProps = state =>({
     logInSucc : state.userReducer.logInSucc,
-    logInError : state.userReducer.logInError
+    logInError : state.userReducer.logInError,
+    login : state.userReducer.login 
 })
 
 export default connect (mapStateToProps, mapDispatchToProps)(Authorization)

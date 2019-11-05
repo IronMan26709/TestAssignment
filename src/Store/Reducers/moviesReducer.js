@@ -2,7 +2,8 @@ import * as types from '../ActionTypes';
 
 const initialState = {
     movies : null,
-    selected : null
+    selected : null,
+    closeNewMovieComponent : false
 }
 
 
@@ -19,8 +20,13 @@ export default ( state = initialState , { type, payload } ) =>{
             return { ...state, selected : null }
         };
 
-        
-        
+        case types.ADD_NEW_MOVIE_REQUEST : {
+            return { ...state, closeNewMovieComponent : false }
+        };
+
+        case types.ADD_NEW_MOVIE_SUCCESS : {
+            return { ...state, closeNewMovieComponent : true }
+        };        
         default : {
             return state;
         };

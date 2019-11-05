@@ -43,7 +43,11 @@ export const userLogOut = payload => ({
     payload
 })
 
- 
+export const autoLogIn = payload => ({
+    type:types.AUTO_LOG_IN,
+    payload
+})
+
  
 export const url ="https://film-api-go.herokuapp.com"
 
